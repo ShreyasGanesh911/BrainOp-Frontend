@@ -4,7 +4,7 @@
 *{
   padding: 0;
   margin: 0;
-  overflow-y: hidden;
+  overflow-x: hidden;
 }
 .displayFlex{
   display: flex;
@@ -16,4 +16,10 @@
   width: 100vw;
   min-height: 100vh;
   height: auto;
+}
+body{
+  background-image: url('https://i.pinimg.com/736x/b4/3d/91/b43d91b07d2648e8d85d2d94c0e96135.jpg');
+}
+.home{
+  background: linear-gradient(rgb(255 255 255 / 80%), rgb(255 255 255 / 80%));
 }
