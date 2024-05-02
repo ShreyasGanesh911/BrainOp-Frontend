@@ -4,7 +4,7 @@ export default function NotFound() {
   return (
     <>
       <section className='page flex items-center justify-center flex-col bg-white home'>
-        <div className='bg-white flex items-center justify-center flex-col w-1/4 py-3 rounded-xl'>
+        <div className='bg-white flex items-center justify-center flex-col lg:w-1/4 w-11/12 py-3 rounded-xl'>
         <h1 className='text-9xl p-10' >:-/</h1>    
         <p className='text-3xl p-5'>404</p>
         <p>This page isn't available</p>
