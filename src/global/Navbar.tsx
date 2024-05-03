@@ -13,9 +13,11 @@ export default function Navbar() {
         "Content-Type": "application/json",
       },
     })
-    console.log('clicked')
-    if(httpresponse.status === 200)
+    if(httpresponse.status === 200){
+      localStorage.removeItem('token')
       return navigate('/')
+    }
+      
   }
   const [visible,setVisible] = useState(false)
   useEffect(()=>{
