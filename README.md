@@ -10,6 +10,8 @@ Internship assignment submission
 *  Toastify
 *  React Spinners
 *  Framer motion
+*  React Router
+*  Tailwind CSS 
 ## About the app
 
 ### Landing page - Signup
