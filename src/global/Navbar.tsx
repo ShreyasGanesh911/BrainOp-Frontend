@@ -6,7 +6,7 @@ export default function Navbar() {
   const handleClick = async(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
       e.preventDefault()
       console.log("hello")
-      const httpresponse = await fetch(`http://localhost:4000/user/logout`, {
+      const httpresponse = await fetch(`https://brainop-backend-00cw.onrender.com/user/logout`, {
       method: "GET", 
       credentials: "include",
       headers: {
