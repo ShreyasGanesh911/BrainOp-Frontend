@@ -14,7 +14,7 @@ export default function Dashboard() {
   const [scrollLoading,setScrollLoading] = useState(false)
   const getData = async()=>{
   try{
-    const httpresponse = await fetch(`http://localhost:4000/user/data?page=${page-1}`, {
+    const httpresponse = await fetch(`https://brainop-backend-00cw.onrender.com/user/login/user/data?page=${page-1}`, {
       method: "GET", 
       credentials: "include",
       headers: {
