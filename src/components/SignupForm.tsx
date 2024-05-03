@@ -27,7 +27,7 @@ export default function SignupForm({screen,setScreen}:ScreenType) {
               if(response.status === 409)
                 return toastWarn(data.message)
               toastSuccess(`OTP has been sent to ${form.email}`)
-              localStorage.setItem("form",JSON.stringify({form,otp:data.otp}))
+              localStorage.setItem("form",JSON.stringify({form}))
               setTimeout(()=>setScreen(true),2005)
         }catch(e){
             toastWarn('Internal Server Error')

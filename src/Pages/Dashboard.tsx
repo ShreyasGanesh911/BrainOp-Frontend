@@ -31,7 +31,6 @@ export default function Dashboard() {
     },500)
     if(product){
       const oldProducts = product.concat(response)
-      console.log('pageNumber',page)
       setProduct(oldProducts)
     }
      
@@ -48,7 +47,6 @@ export default function Dashboard() {
         window.innerHeight + document.documentElement.scrollTop + 1 >=
         document.documentElement.scrollHeight
     ) {
-        console.log(product)
         setScrollLoading(true);
         setPage((prev) => prev + 1);
     }

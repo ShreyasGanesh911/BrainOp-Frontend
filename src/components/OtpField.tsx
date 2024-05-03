@@ -18,12 +18,29 @@ export default function OtpField() {
         let otp:string[]=[]
         otp.push(value.f1,value.f2,value.f3,value.f4)
         const num:number = Number(otp.join(''))
-        if(num === verification){
-           toastSuccess("Verified successfully")
-           setTimeout(()=>navigate('/home'),2005)
-        }
-        else{
-            toastWarn("Incorrect code")
+        try{
+            const response = await fetch('http://localhost:4000/user/verify', {
+                method: "POST", 
+                credentials: "include", 
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({email,password:num}), 
+              });
+              if(response.status === 200){
+                toastSuccess("Account verified")
+                setTimeout(()=>navigate('/home'),2005)
+              }
+            else{
+                const data = await response.json()  
+                toastWarn(data.message)
+               
+                
+            }
+        }catch(e){
+            toastWarn('Internal Server Error')
+
+            console.log(e)
         }
      
             
@@ -31,13 +48,29 @@ export default function OtpField() {
 
     const handleResendMail = async(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
             e.preventDefault()
+            try{
+                const response = await fetch('http://localhost:4000/user/resend', {
+                    method: "POST", 
+                    credentials: "include", 
+                    headers: {
+                      "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({email}), 
+                  });
+                  if(response.status === 200){
+                    toastSuccess("Resent verification code")
+                    
+                  }
+                  else
+                    toastWarn('Oops something went wrong')
+            }catch(err){
+
+            }
     }
     useEffect(()=>{
         const body:string = localStorage.getItem('form') || ''
         const form = JSON.parse(body)
-        console.log(form)
         setEmail(form.form.email)
-        setVerification(form.otp)
     },[])
   return (
 
@@ -53,7 +86,7 @@ export default function OtpField() {
                     <input name='f4' value={value.f4} onChange={handleChange} className="w-12 h-12 text-center border rounded-md shadow-sm focus:border-teal-500 focus:ring-teal-500" type="text" maxLength={1} pattern="[0-9]" inputMode="numeric" autoComplete="one-time-code" required/>
                 </div>
             <div className="flex items-center justify-center">
-                <button className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={handleClick}>Verify</button>
+                <button  className="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="button" onClick={handleClick}>Verify</button>
             <button className="inline-block align-baseline font-bold text-sm text-teal-500 hover:text-teal-800 ml-4" onClick={handleResendMail}>Resend OTP</button>
              </div>
          </form>

@@ -31,9 +31,9 @@ export default function Home() {
                           login ? <>
                             <h1 className="p-2 ml-3 lg:text-5xl text-4xl">Get started</h1>
                             <p className="w-full  text-center lg:text-start lg:mx-10">Have an account <button onClick={()=>setLogin(false)}><span className="text-violet-300">Login now</span></button></p>
-                        <SignupForm screen={screen} setScreen={setScreen}/>
+                        <SignupForm screen={screen} setScreen={setScreen} login={login} setLogin={setLogin} />
                           </>:<>
-                            <Login screen={login} setScreen={setLogin}/>
+                            <Login screen={screen} setScreen={setScreen} login={login} setLogin={setLogin} />
                           </>
                        }
                        </>
