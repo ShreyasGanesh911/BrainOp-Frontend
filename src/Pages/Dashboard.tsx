@@ -1,21 +1,10 @@
 import Card from '../components/Card'
-import hello from "../hello.json"
 import { useEffect, useState } from 'react';
 import Loader from '../components/Loader';
 import { useNavigate } from 'react-router-dom';
 import InfiniteLoader from '../components/InfiniteLoader';
+import { Props } from '../Types/ProductTypes';
 
-type Props = {
-  title:String,
-  description:String,
-  price:number,
-  brand:String,
-  images:string[],
-  rating:Number,
-  stock:Number,
-  category:String,
-  discountPercentage:number
-}
 
 export default function Dashboard() {
   const navigate = useNavigate()

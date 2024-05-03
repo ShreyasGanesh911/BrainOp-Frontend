@@ -1,16 +1,6 @@
 import { motion } from 'framer-motion'
 import React from 'react'
-type Props = {
-    title:String,
-    description:String,
-    price:number,
-    brand:String,
-    images:string[],
-    rating:Number,
-    stock:Number,
-    category:String,
-    discountPercentage:number
-}
+import {Props} from "../Types/ProductTypes"
 
 export default function Card({title,description,price,brand,images,rating,stock,category,discountPercentage}:Props) {
   return (
