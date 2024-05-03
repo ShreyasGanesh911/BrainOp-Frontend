@@ -38,6 +38,7 @@ export default function Login({login,setLogin,setScreen}:ScreenType) {
               }
               if(response.status === 200){
                 toastSuccess(`Logged in`)
+                localStorage.setItem('token','true')
                 setTimeout(()=>navigate('/home'),2005)
               }
               else{

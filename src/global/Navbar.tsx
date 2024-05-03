@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react"
-import { Cookies } from "react-cookie"
 import { useNavigate } from "react-router-dom"
 
-const cookie = new Cookies()
 export default function Navbar() {
   const navigate = useNavigate()
   const handleClick = async(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
@@ -21,7 +19,7 @@ export default function Navbar() {
   }
   const [visible,setVisible] = useState(false)
   useEffect(()=>{
-    if(cookie.get('AuthToken'))
+    if(localStorage.getItem('token'))
         setVisible(true)
     else
       setVisible(false)
