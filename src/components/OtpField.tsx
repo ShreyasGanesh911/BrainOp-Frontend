@@ -19,7 +19,7 @@ export default function OtpField() {
         otp.push(value.f1,value.f2,value.f3,value.f4)
         const num:number = Number(otp.join(''))
         try{
-            const response = await fetch('https://brainop-backend-00cw.onrender.com/user/login/user/verify', {
+            const response = await fetch('https://brainop-backend-00cw.onrender.com/user/verify', {
                 method: "POST", 
                 credentials: "include", 
                 headers: {
@@ -49,7 +49,7 @@ export default function OtpField() {
     const handleResendMail = async(e:React.MouseEvent<HTMLButtonElement, MouseEvent>)=>{
             e.preventDefault()
             try{
-                const response = await fetch('https://brainop-backend-00cw.onrender.com/user/login/user/resend', {
+                const response = await fetch('https://brainop-backend-00cw.onrender.com/user/resend', {
                     method: "POST", 
                     credentials: "include", 
                     headers: {

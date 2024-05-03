@@ -24,7 +24,7 @@ export default function Login({login,setLogin,setScreen}:ScreenType) {
         if(form.email==="" || form.password==="")
             return toastWarn("Cant leave field empty")
         try{
-            const response = await fetch('https://brainop-backend-00cw.onrender.com/user/login/user/login', {
+            const response = await fetch('https://brainop-backend-00cw.onrender.com/user/login', {
                 method: "POST", 
                 credentials: "include", 
                 headers: {

@@ -15,7 +15,7 @@ export default function SignupForm({screen,setScreen}:ScreenType) {
         if(form.password !== form.cPassword)
             return toastWarn("Passwords don't match")
         try{
-            const response = await fetch('https://brainop-backend-00cw.onrender.com/user/login/user/signup', {
+            const response = await fetch('https://brainop-backend-00cw.onrender.com/user/signup', {
                 method: "POST", 
                 credentials: "include", 
                 headers: {
