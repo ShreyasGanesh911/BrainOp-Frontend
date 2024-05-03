@@ -25,7 +25,9 @@ export default function Dashboard() {
       return navigate('/')
     
     const data = await httpresponse.json()
+    
     const {response} = data
+    console.log(response)
     setTimeout(()=>{
       setLoading(false)
     },500)
