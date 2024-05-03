@@ -15,7 +15,7 @@ type Props = {
 export default function Card({title,description,price,brand,images,rating,stock,category,discountPercentage}:Props) {
   return (
     <>
-    <motion.div initial={{scale:1,x:-20,opacity:0}} whileHover={{scale:1.1}} whileInView={{opacity:1,x:0}} viewport={{once:true}} className='w-80 mx-5  bg-white h-72 my-5 flex flex-col rounded-xl font-sans'>
+    <motion.div initial={{scale:1,x:-20,opacity:0}} whileHover={{scale:1.1}} whileInView={{opacity:1,x:0}} viewport={{once:true}} className='w-80 md:mx-1  bg-white h-72 lg:my-6 my-3 flex flex-col rounded-xl font-sans'>
       <div className='h-4/6 p-3 overflow-y-hidden '>
       <motion.img initial={{opacity:1}} whileHover={{opacity:0.75}} src={images[0]} className=' w-full h-full object-contain' alt="" />
       <span className='bg-red-500 p-1 text-sm relative  bottom-44 float-right font-sans text-white rounded'>{Math.floor(discountPercentage)} %</span>
