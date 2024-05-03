@@ -28,6 +28,7 @@ export default function OtpField() {
                 body: JSON.stringify({email,password:num}), 
               });
               if(response.status === 200){
+                localStorage.setItem('token','true')
                 toastSuccess("Account verified")
                 setTimeout(()=>navigate('/home'),2005)
               }
