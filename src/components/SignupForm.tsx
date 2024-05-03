@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { ToastContainer } from "react-toastify";
 import { toastSuccess, toastWarn } from './Toast';
 import { useNavigate } from 'react-router-dom';
-export default function SignupForm() {
+import {ScreenType} from '../Types/UseStateScreen'
+export default function SignupForm({screen,setScreen}:ScreenType) {
     const [form,setForm] = useState({name:'',email:'',password:'',userName:'',cPassword:''})
     const [checked,setChecked] = useState(false)
     const navigate = useNavigate()
@@ -22,11 +23,12 @@ export default function SignupForm() {
                 },
                 body: JSON.stringify(form), 
               });
-              const data = await response.json()
+              const data = await response.json()  
               if(response.status === 409)
                 return toastWarn(data.message)
-              toastSuccess(data.message + ', Redirecting',)
-              setTimeout(()=>navigate('/home'),2005)
+              toastSuccess(`OTP has been sent to ${form.email}`)
+              localStorage.setItem("form",JSON.stringify({form,otp:data.otp}))
+              setTimeout(()=>setScreen(true),2005)
         }catch(e){
             toastWarn('Internal Server Error')
             console.log(e)
@@ -46,7 +48,7 @@ export default function SignupForm() {
     
   return (
     <>
-      <form className='w-full h-5/6  lg:p-2  overflow-y-hidden flex flex-col items-center justify-center'  onSubmit={handleForm}>
+      <form className='w-full h-5/6    overflow-y-hidden flex flex-col items-center justify-center'  onSubmit={handleForm}>
         <div className='lg:pb-1 lg:pl-2 overflow-y-hidden w-3/4'>
             <label  >Username:</label>
             <br />
